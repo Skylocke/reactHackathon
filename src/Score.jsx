@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './App.css';
 import SingleQuote from './SingleQuote';
 
@@ -29,13 +30,30 @@ class Score extends Component {
 
   checkAnswers(e) {
     e.preventDefault();
-    console.log(e.target);
+    console.log(this.props.deck.length);
+    let answers = [];
+    let score;
+    this.props.deck.forEach(function(card, i) {
+      let name = "speaker" + i;
+      let inputVal = ($("input[name=" +name+ "]:checked").val() === "true");
+      console.log(inputVal);
+
+      if (inputVal === undefined) {
+        answers.push(false);
+        score+=false;
+      } else {
+        answers.push(inputVal);
+        score+=inputVal;
+      }
+
+    })
+    console.log(answers);
   }
 
    quoteDeck() {
      console.log(this.props.deck)
      return this.props.deck.map((card, index) =>
-       <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name}
+       <SingleQuote key={card.quote} index={index} quote={card.quote} name={card.name}
          tickScore={() => this.tickScore()} />)
    }
   }

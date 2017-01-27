@@ -12,7 +12,7 @@ class SingleQuote extends Component {
             <input type="radio" name={"speaker" + this.props.index} id="DonnyT" value={this.props.name === 'trump'} /><img src="../trump.png" />
           </label>
           <label for="AdyH">
-            <input type="radio" name={"speaker" + this.props.index}  id="AdyH" value={this.props.name === 'hitler'} /><img src="../hitler.png" />
+            <input type="radio" name={"speaker" + this.props.index} id="AdyH" value={this.props.name === 'hitler'} /><img src="../hitler.png" />
           </label>
         </div>
       </div>
