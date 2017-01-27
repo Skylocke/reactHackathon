@@ -37,6 +37,7 @@ class APIRequest extends Component {
     return (
       <div>
         <h1>API Works </h1>
+        <p>score test: {this.state.score}</p>
         {this.randomQuotes()}
       </div>
     );
