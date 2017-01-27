@@ -8,6 +8,7 @@ class APIRequest extends Component {
     this.state = {
       trumps: [],
       hitlers: hitler,
+      score: 0
     };
      this.performAPIRequest();
   }
@@ -32,6 +33,14 @@ class APIRequest extends Component {
 }
 
   render () {
+    return (
+      <div>
+        {this.randomQuotes()}
+      </div>
+    );
+  }
+
+  randomQuotes() {
     var shuffleTwoArrays = function(arr1, arr2, deckSize) {
       var collection = arr1.concat(arr2);
       var deck = [];
@@ -43,23 +52,22 @@ class APIRequest extends Component {
       return deck;
     }
 
-    return (
-      <div>
-        <h1>API Works </h1>
-        {shuffleTwoArrays(this.trumps(), this.hitlers(), 1)}
-      </div>
-    );
+
+    let trumps = this.state.trumps;
+    let hitlers = this.state.hitlers;
+
+    let deck = shuffleTwoArrays(hitlers, trumps, 1);
+
+    return deck.map((card, index) =>
+      <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name}
+        tickScore={() => this.tickScore()} />)
+
   }
 
-  trumps() {
-    return this.state.trumps.map(trump =>
-      <SingleQuote trump={trump.quote} />
-    );
-  }
-  hitlers() {
-    return this.state.hitlers.map(hitler =>
-      <SingleQuote hitler={hitler.quote} />
-    );
+  tickScore() {
+    let score = this.state.score;
+    score++;
+    this.setState({score: score});
   }
 
 }
