@@ -13,7 +13,6 @@ class APIRequest extends Component {
   }
 
   performAPIRequest() {
-    var that = this;
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/")
     .then(response => {
       response.json().then(data => {
@@ -24,11 +23,11 @@ class APIRequest extends Component {
             quote: quote
           })
         })
-        that.setState({trumps: trumps});
+        this.setState({trumps: trumps});
       });
     }).catch(error => {
       console.log(error);
-      that.setState({trumps: []});
+      this.setState({trumps: []});
     });
 }
 
@@ -47,7 +46,7 @@ class APIRequest extends Component {
     return (
       <div>
         <h1>API Works </h1>
-        {shuffleTwoArrays(this.trumps(), this.hitlers(), 15)}
+        {shuffleTwoArrays(this.trumps(), this.hitlers(), 1)}
       </div>
     );
   }
