@@ -30,9 +30,8 @@ class Score extends Component {
 
   checkAnswers(e) {
     e.preventDefault();
-    console.log(this.props.deck.length);
     let answers = [];
-    let score;
+    let score = false;
     this.props.deck.forEach(function(card, i) {
       let name = "speaker" + i;
       let inputVal = ($("input[name=" +name+ "]:checked").val() === "true");
@@ -47,7 +46,7 @@ class Score extends Component {
       }
 
     })
-    console.log(answers);
+    this.setState({score: score})
   }
 
    quoteDeck() {
