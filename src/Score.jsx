@@ -46,8 +46,7 @@ class Score extends Component {
       }
 
     })
-    console.log(answers);
-    console.log(score);
+    this.setState({score: score})
   }
 
    quoteDeck() {
