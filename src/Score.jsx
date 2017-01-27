@@ -16,10 +16,10 @@ class Score extends Component {
       <div>
         <form onSubmit={(event) => this.checkAnswers(event)}>
           {this.quoteDeck()}
-          <button onClick="showScore()" id="button" type="submit">Submit</button>
+          <button onClick={() => this.showScore()} id="button" type="submit">Submit</button>
         </form>
-        <div>
-          <h1 id="score"> Your score: {this.state.score}/5 </h1>
+        <div id="scoreBoard">
+          <h1> Your score: {this.state.score}/5 </h1>
         </div>
       </div>
     );
@@ -27,11 +27,9 @@ class Score extends Component {
 
   showScore() {
     $('html, body').animate({
-          scrollTop: document.getElementById('score').offset().top
+          scrollTop: document.getElementById('scoreBoard').offset().top
         }, 1000);
   }
-
-
 
   tickScore() {
      let score = this.state.score;
