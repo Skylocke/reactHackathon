@@ -22,6 +22,7 @@ class SingleQuote extends Component {
   }
 
   checkAnswer(e) {
+    e.preventDefault();
     let actualName = this.props.name;
     let guessedName = e.target.value;
     if (guessedName === actualName) {
