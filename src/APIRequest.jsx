@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SingleQuote from './SingleQuote';
 import Score from './Score';
 import hitler from './hitler_quotes.json';
 
@@ -9,12 +8,9 @@ class APIRequest extends Component {
 
     this.state = {
       trumps: [],
-      hitlers: hitler,
-      deck: [],
-      score: 0
+      hitlers: hitler
     };
     this.performAPIRequest();
-
   }
 
   performAPIRequest() {
@@ -57,16 +53,9 @@ class APIRequest extends Component {
     return (
       <div>
         <h1>API Works </h1>
-        <p>score test: {this.state.score}</p>
         {this.randomQuotes()}
       </div>
     );
-  }
-
-  tickScore() {
-    let score = this.state.score;
-    score++;
-    this.setState({score: score});
   }
 
 }
