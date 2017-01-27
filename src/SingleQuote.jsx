@@ -6,9 +6,11 @@ class SingleQuote extends Component {
   render() {
     return(
       <div className="container">
-      <h1> Home </h1>
         <div> {this.props.messages}</div>
-        <button className="btn btn-primary">Click Me</button>
+        <form action="submit">
+          <input type="radio" name="gender" value="A" />
+          <input type="radio" name="gender" value="B" />
+        </form>
       </div>
     );
   }
