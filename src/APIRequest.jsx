@@ -47,7 +47,7 @@ class APIRequest extends Component {
     return (
       <div>
         <h1>API Works </h1>
-        {shuffleTwoArrays(this.trumps(), this.hitlers(), 10)}
+        {shuffleTwoArrays(this.trumps(), this.hitlers(), 15)}
       </div>
     );
   }
