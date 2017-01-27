@@ -22,7 +22,14 @@ class APIRequest extends Component {
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/")
     .then(response => {
       response.json().then(data => {
-        that.setState({trumps: data.messages.non_personalized});
+        let trumps = [];
+        data.messages.non_personalized.forEach(function(quote) {
+          trumps.push({
+            name: "trump",
+            quote: quote
+          })
+        })
+        that.setState({trumps: trumps});
       });
     }).catch(error => {
       console.log(error);
@@ -41,7 +48,7 @@ render () {
 
 trumps() {
   return this.state.trumps.map(trump =>
-    <SingleQuote trump={trump} />
+    <SingleQuote trump={trump.quote} />
   );
 }
 }
