@@ -11,7 +11,9 @@ request(URL, function(error, response, body) {
   var quoteTexts = $('.quoteText')
 
   hitler_quotes = quoteTexts.map(function(index, element) {
-    return element.children[0].data.trim().replace("“", "").replace("”", "");
+    return { name: 'hitler',
+      quote: element.children[0].data.trim().replace("“", "").replace("”", "")
+    };
   }).get();
   fs.writeFile('hitler_quotes.json', JSON.stringify(hitler_quotes), 'utf8', function (err) {
     console.error(err);
