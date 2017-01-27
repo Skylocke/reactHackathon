@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SingleQuote from './SingleQuote';
 import Score from './Score';
 import hitler from './hitler_quotes.json';
 
@@ -11,6 +12,7 @@ class APIRequest extends Component {
       hitlers: hitler
     };
     this.performAPIRequest();
+
   }
 
   performAPIRequest() {
