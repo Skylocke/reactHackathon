@@ -7,7 +7,7 @@ class Score extends Component {
   constructor() {
     super();
     this.state = {
-      score: 0
+      score: 0,
     }
   }
 
@@ -19,14 +19,18 @@ class Score extends Component {
           <button onClick="showScore()" id="button" type="submit">Submit</button>
         </form>
         <div>
-          <h1> Your score: {this.state.score}/5 </h1>
+          <h1 id="score"> Your score: {this.state.score}/5 </h1>
         </div>
       </div>
     );
   }
+
   showScore() {
-    $("#scoreboard").toggle();
+    $('html, body').animate({
+          scrollTop: document.getElementById('score').offset().top
+        }, 1000);
   }
+
 
 
   tickScore() {
