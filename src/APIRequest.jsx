@@ -54,7 +54,8 @@ class APIRequest extends Component {
   render () {
     return (
       <div>
-        <h1>API Works </h1>
+        <h1 id="title">Who said it? </h1>
+        <h3 id="lowerTitle">Click the image of the politician that you think matches best with the quote.</h3>
         {this.randomQuotes()}
       </div>
     );

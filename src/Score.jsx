@@ -13,14 +13,21 @@ class Score extends Component {
 
   render() {
     return(
-      <div>score test: {this.state.score}
+      <div>
         <form onSubmit={(event) => this.checkAnswers(event)}>
           {this.quoteDeck()}
-          <button type="submit">Submit</button>
+          <button onClick="showScore()" id="button" type="submit">Submit</button>
         </form>
+        <div>
+          <h1> Your score: {this.state.score}/5 </h1>
+        </div>
       </div>
     );
   }
+  showScore() {
+    $("#scoreboard").toggle();
+  }
+
 
   tickScore() {
      let score = this.state.score;
@@ -55,5 +62,8 @@ class Score extends Component {
        <SingleQuote key={card.quote} index={index} quote={card.quote} name={card.name}
          tickScore={() => this.tickScore()} />)
    }
+
+
+
   }
     export default Score;

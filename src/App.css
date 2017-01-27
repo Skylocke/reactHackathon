@@ -2,6 +2,13 @@
   margin-bottom: 100px;
 }
 
+#title {
+  text-align: center;
+}
+#lowerTitle {
+  text-align: center;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -98,7 +105,4 @@ img {
 #trupmPic {
   margin-right: 200px;
   margin-left:50px;
-}
-
-#hitlerPic {
 }
