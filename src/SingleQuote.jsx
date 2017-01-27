@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import './App.css';
 
 class SingleQuote extends Component {
@@ -12,10 +13,10 @@ class SingleQuote extends Component {
         <div id="quoteText">{this.props.quote}</div>
         <div id="dictators">
           <label for="DonnyT">
-            <input type="radio" name={"speaker" + this.props.index} id="DonnyT" value={this.props.name === 'trump'} /><img id="trupmPic" src="../trump.png" />
+            <input type="radio" name={"speaker" + this.props.index} id="DonnyT" value={this.props.name === 'trump'} onClick={() => this.nextDivScroll()} /><img id="trupmPic" src="../trump.png" />
           </label>
           <label for="AdyH">
-            <input type="radio" name={"speaker" + this.props.index} id="AdyH" value={this.props.name === 'hitler'} /><img id="hitlerPic" src="../hitler.png" />
+            <input type="radio" name={"speaker" + this.props.index} id="AdyH" value={this.props.name === 'hitler'} onClick={() => this.nextDivScroll()} /><img id="hitlerPic" src="../hitler.png" />
           </label>
         </div>
       </div>
@@ -23,5 +24,14 @@ class SingleQuote extends Component {
 
     );
   }
+
+  nextDivScroll() {
+    let nextDivId = "#" + (this.props.index + 1);
+    let nextDiv = $(nextDivId)
+    $('html, body').animate({
+          scrollTop: nextDiv.offset().top
+        }, 1000);
+  }
+
 }
 export default SingleQuote;
