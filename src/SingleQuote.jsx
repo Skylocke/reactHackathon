@@ -21,6 +21,7 @@ class SingleQuote extends Component {
     );
   }
 
+
 }
 
 export default SingleQuote;

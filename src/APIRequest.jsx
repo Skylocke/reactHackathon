@@ -8,6 +8,7 @@ class APIRequest extends Component {
     this.state = {
       trumps: [],
       hitlers: hitler,
+      score: 0
     };
      this.performAPIRequest();
   }
@@ -33,7 +34,6 @@ class APIRequest extends Component {
 }
 
   render () {
-
     return (
       <div>
         <h1>API Works </h1>
@@ -59,10 +59,17 @@ class APIRequest extends Component {
 
     let deck = shuffleTwoArrays(hitlers, trumps, 15);
 
-    return deck.map((card, index) => <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name} />)
+    return deck.map((card, index) =>
+      <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name}
+        tickScore={() => this.tickScore()} />)
 
   }
 
+  tickScore() {
+    let score = this.state.score;
+    score++;
+    this.setState({score: score});
+  }
 
 }
 
