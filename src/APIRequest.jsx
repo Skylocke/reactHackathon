@@ -7,14 +7,9 @@ class APIRequest extends Component {
   super();
     this.state = {
       trumps: [],
-      hitlers: hitler
+      hitlers: [],
     };
      this.performAPIRequest();
-     this.scrape(hitler);
-  }
-
-  scrape(obj) {
-    console.log(obj);
   }
 
   performAPIRequest() {
@@ -43,6 +38,9 @@ trumps() {
   return this.state.trumps.map(trump =>
     <SingleQuote trump={trump} />
   );
+  return this.state.hitlers.map(hitler =>
+  <SingleQuote hitler={hitler} />
+);
 }
 }
 
