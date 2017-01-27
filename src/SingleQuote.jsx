@@ -5,8 +5,8 @@ class SingleQuote extends Component {
 
   render() {
     return(
-      <div className="container">
-        <div id={this.props.index}>{this.props.quote}</div>
+      <div className="container" id={this.props.index}>
+        <div>{this.props.quote}</div>
         <form action="submit">
           <div id="dictators">
               <label for="DonnyT">
