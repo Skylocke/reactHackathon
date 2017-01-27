@@ -33,6 +33,16 @@ class APIRequest extends Component {
 }
 
   render () {
+    
+    return (
+      <div>
+        <h1>API Works </h1>
+        {this.randomQuotes()}
+      </div>
+    );
+  }
+
+  randomQuotes() {
     var shuffleTwoArrays = function(arr1, arr2, deckSize) {
       var collection = arr1.concat(arr2);
       var deck = [];
@@ -44,12 +54,13 @@ class APIRequest extends Component {
       return deck;
     }
 
-    return (
-      <div>
-        <h1>API Works </h1>
-        {shuffleTwoArrays(this.trumps(), this.hitlers(), 15)}
-      </div>
-    );
+    let trumps = this.state.trumps;
+    let hitlers = this.state.hitlers;
+
+    let deck = shuffleTwoArrays(hitlers, trumps, 15);
+
+    return deck.map(card => <SingleQuote quote={card.quote} name={card.name} />)
+
   }
 
   trumps() {
