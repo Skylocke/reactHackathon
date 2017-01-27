@@ -33,7 +33,7 @@ class APIRequest extends Component {
 }
 
   render () {
-    
+
     return (
       <div>
         <h1>API Works </h1>
@@ -59,20 +59,10 @@ class APIRequest extends Component {
 
     let deck = shuffleTwoArrays(hitlers, trumps, 15);
 
-    return deck.map(card => <SingleQuote quote={card.quote} name={card.name} />)
+    return deck.map((card, index) => <SingleQuote key={quote} index={index} quote={card.quote} name={card.name} />)
 
   }
 
-  trumps() {
-    return this.state.trumps.map(trump =>
-      <SingleQuote trump={trump.quote} />
-    );
-  }
-  hitlers() {
-    return this.state.hitlers.map(hitler =>
-      <SingleQuote hitler={hitler.quote} />
-    );
-  }
 
 }
 
