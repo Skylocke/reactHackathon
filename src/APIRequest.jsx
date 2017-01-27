@@ -15,8 +15,9 @@ class APIRequest extends Component {
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/")
     .then(response => {
       response.json().then(data => {
-        console.log('data ', data)
-        that.setState({results: data});
+        console.log('data ', data);
+        console.log('data messages non personalized ', data.messages.non_personalized);
+        that.setState({results: data.messages.non_personalized});
       });
     }).catch(error => {
       console.log(error);
@@ -35,7 +36,7 @@ render () {
 
 results() {
   return this.state.results.map(result =>
-    <SingleQuote messages={result.messages} />
+    <SingleQuote messages={result} />
   );
 }
 }
