@@ -59,7 +59,7 @@ class APIRequest extends Component {
 
     let deck = shuffleTwoArrays(hitlers, trumps, 15);
 
-    return deck.map((card, index) => <SingleQuote key={quote} index={index} quote={card.quote} name={card.name} />)
+    return deck.map((card, index) => <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name} />)
 
   }
 
