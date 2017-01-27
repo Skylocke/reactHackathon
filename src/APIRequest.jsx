@@ -14,7 +14,6 @@ class APIRequest extends Component {
   }
 
   performAPIRequest() {
-    var that = this;
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/")
     .then(response => {
       response.json().then(data => {
@@ -25,11 +24,11 @@ class APIRequest extends Component {
             quote: quote
           })
         })
-        that.setState({trumps: trumps});
+        this.setState({trumps: trumps});
       });
     }).catch(error => {
       console.log(error);
-      that.setState({trumps: []});
+      this.setState({trumps: []});
     });
 }
 
@@ -55,10 +54,11 @@ class APIRequest extends Component {
       return deck;
     }
 
+
     let trumps = this.state.trumps;
     let hitlers = this.state.hitlers;
 
-    let deck = shuffleTwoArrays(hitlers, trumps, 15);
+    let deck = shuffleTwoArrays(hitlers, trumps, 1);
 
     return deck.map((card, index) =>
       <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name}
