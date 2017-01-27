@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import SingleQuote from './SingleQuote';
+import Score from './Score';
 import hitler from './hitler_quotes.json';
 
 class APIRequest extends Component {
   constructor() {
     super();
+
     this.state = {
       trumps: [],
       hitlers: hitler,
@@ -12,7 +14,7 @@ class APIRequest extends Component {
       score: 0
     };
     this.performAPIRequest();
-    this.randomQuotes();
+
   }
 
   performAPIRequest() {
@@ -48,8 +50,7 @@ class APIRequest extends Component {
     let trumps = this.state.trumps;
     let hitlers = this.state.hitlers;
     let deck = shuffleTwoArrays(hitlers, trumps, 1);
-    console.log(deck);
-    this.setState({deck: deck});
+    return (<Score key="quotes" deck={deck} />)
   }
 
   render () {
@@ -57,15 +58,9 @@ class APIRequest extends Component {
       <div>
         <h1>API Works </h1>
         <p>score test: {this.state.score}</p>
-        {this.quoteDeck()}
+        {this.randomQuotes()}
       </div>
     );
-  }
-
-  quoteDeck() {
-    return this.state.deck.map((card, index) =>
-      <SingleQuote key={card.quote} index={card.index} quote={card.quote} name={card.name}
-        tickScore={this.tickScore} />)
   }
 
   tickScore() {
