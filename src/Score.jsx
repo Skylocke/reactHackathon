@@ -13,7 +13,11 @@ class Score extends Component {
   render() {
     return(
       <div>score test: {this.state.score}
-      {this.quoteDeck()}</div>
+        <form onSubmit={(event) => this.checkAnswers(event)}>
+          {this.quoteDeck()}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     );
   }
 
@@ -21,7 +25,12 @@ class Score extends Component {
      let score = this.state.score;
      score++;
      this.setState({score: score});
-   }
+  }
+
+  checkAnswers(e) {
+    e.preventDefault();
+    console.log(e.target);
+  }
 
    quoteDeck() {
      console.log(this.props.deck)

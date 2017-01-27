@@ -47,7 +47,7 @@ class APIRequest extends Component {
     }
     let trumps = this.state.trumps;
     let hitlers = this.state.hitlers;
-    let deck = shuffleTwoArrays(hitlers, trumps, 10);
+    let deck = shuffleTwoArrays(hitlers, trumps, 5);
     return (<Score key="quotes" deck={deck} />)
   }
 
