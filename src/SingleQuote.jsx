@@ -7,6 +7,7 @@ class SingleQuote extends Component {
 
   render() {
     return(
+      <div id="outer">
       <div className="bubble container" id={this.props.index}>
         <div id="quoteText">{this.props.quote}</div>
         <div id="dictators">
@@ -17,8 +18,9 @@ class SingleQuote extends Component {
             <input type="radio" name={"speaker" + this.props.index} id="AdyH" value={this.props.name === 'hitler'} /><img id="hitlerPic" src="../hitler.png" />
           </label>
         </div>
-
       </div>
+      </div>
+
     );
   }
 }
