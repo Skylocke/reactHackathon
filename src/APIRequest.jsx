@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import SingleQuote from './SingleQuote';
+import hitler from './hitler_quotes.json';
 
 class APIRequest extends Component {
   constructor() {
   super();
     this.state = {
-      results: []
+      trumps: [],
+      hitlers: hitler
     };
      this.performAPIRequest();
+     this.scrape(hitler);
+  }
+
+  scrape(obj) {
+    console.log(obj);
   }
 
   performAPIRequest() {
@@ -15,13 +22,11 @@ class APIRequest extends Component {
     fetch("https://api.whatdoestrumpthink.com/api/v1/quotes/")
     .then(response => {
       response.json().then(data => {
-        console.log('data ', data);
-        console.log('data messages non personalized ', data.messages.non_personalized);
-        that.setState({results: data.messages.non_personalized});
+        that.setState({trumps: data.messages.non_personalized});
       });
     }).catch(error => {
       console.log(error);
-      that.setState({results: []});
+      that.setState({trumps: []});
     });
 }
 
@@ -29,14 +34,14 @@ render () {
   return (
     <div>
       <h1>API Works </h1>
-      {this.results()}
+      {this.trumps()}
     </div>
   );
 }
 
-results() {
-  return this.state.results.map(result =>
-    <SingleQuote messages={result} />
+trumps() {
+  return this.state.trumps.map(trump =>
+    <SingleQuote trump={trump} />
   );
 }
 }

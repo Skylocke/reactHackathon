@@ -6,7 +6,8 @@ class SingleQuote extends Component {
   render() {
     return(
       <div className="container">
-        <div> {this.props.messages}</div>
+        <div> {this.props.trump}</div>
+        <div> {this.props.hitler}</div>
         <form action="submit">
           <input type="radio" name="gender" value="A" />
           <input type="radio" name="gender" value="B" />
