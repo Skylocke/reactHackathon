@@ -27,7 +27,7 @@ class Score extends Component {
 
   showScore() {
     $('html, body').animate({
-          scrollTop: document.getElementById('scoreBoard').offset().top
+          scrollTop: $('#scoreBoard').offset().top
         }, 1000);
   }
 
