@@ -52,7 +52,6 @@ label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
 margin-top: 5%;
 position: relative;
 width: 750px;
-height: 450px;
 padding: 40px;
 background: #FFFFFF;
 -webkit-border-radius: 80px;
