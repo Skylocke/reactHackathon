@@ -10,15 +10,23 @@ class SingleQuote extends Component {
         <form action="submit">
           <div id="dictators">
               <label for="DonnyT">
-                <input type="radio" name="speaker" id="DonnyT" value="A" /><img src="../trump.png" />
+                <input type="radio" name="speaker" id="DonnyT" value="trump" onChange={(event) => this.checkAnswer(event)} /><img src="../trump.png" />
               </label>
               <label for="AdyH">
-                <input type="radio" name="speaker" id="AdyH" value="B" /><img src="../hitler.png" />
+                <input type="radio" name="speaker" id="AdyH" value="hitler" onChange={(event) => this.checkAnswer(event)} /><img src="../hitler.png" />
               </label>
           </div>
         </form>
       </div>
     );
+  }
+
+  checkAnswer(e) {
+    let actualName = this.props.name;
+    let guessedName = e.target.value;
+    if (guessedName === actualName) {
+      this.props.tickScore();
+    }
   }
 
 
