@@ -32,26 +32,37 @@ class APIRequest extends Component {
     });
 }
 
-render () {
-  return (
-    <div>
-      <h1>API Works </h1>
-      {this.trumps()}
-      {this.hitlers()}
-    </div>
-  );
-}
+  render () {
+    var shuffleTwoArrays = function(arr1, arr2, deckSize) {
+      var collection = arr1.concat(arr2);
+      var deck = [];
+      for (var i=0; i<deckSize; i++) {
+        var randomIndex = Math.floor(Math.random()*collection.length);
+        deck.push(collection[randomIndex]);
+        collection.splice(randomIndex, 1);
+      }
+      return deck;
+    }
 
-trumps() {
-  return this.state.trumps.map(trump =>
-    <SingleQuote trump={trump.quote} />
-  );
-}
-hitlers() {
-  return this.state.hitlers.map(hitler =>
-  <SingleQuote hitler={hitler.quote} />
-);
-}
+    return (
+      <div>
+        <h1>API Works </h1>
+        {shuffleTwoArrays(this.trumps(), this.hitlers(), 10)}
+      </div>
+    );
+  }
+
+  trumps() {
+    return this.state.trumps.map(trump =>
+      <SingleQuote trump={trump.quote} />
+    );
+  }
+  hitlers() {
+    return this.state.hitlers.map(hitler =>
+      <SingleQuote hitler={hitler.quote} />
+    );
+  }
+
 }
 
 module.exports = APIRequest;
